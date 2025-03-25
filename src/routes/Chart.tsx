@@ -3,7 +3,7 @@ import { isDarkAtom } from "../atoms";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinHistory } from "../api";
 import ReactApexChart from "react-apexcharts";
-
+import { useOutletContext } from "react-router-dom";
 interface ChartProps {
   coinId: string;
 }
@@ -19,12 +19,12 @@ interface IHistorical {
   market_cap: number;
 }
 
-function Chart({ coinId }: ChartProps) {
+function Chart() {
+  const { coinId } = useOutletContext<ChartProps>();
   const isDark = useRecoilValue(isDarkAtom);
   const { data, error, isLoading } = useQuery<IHistorical[]>({
     queryKey: ["ohlcv", coinId],
     queryFn: () => fetchCoinHistory(coinId),
-    refetchInterval: 10000,
   });
   return (
     <div>

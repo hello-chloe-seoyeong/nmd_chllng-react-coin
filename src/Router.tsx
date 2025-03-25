@@ -8,9 +8,12 @@ interface IRouterProps {}
 
 function Router({}: IRouterProps) {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URLs}>
       <Routes>
-        <Route path="/:coinId" element={<Coin />} />
+        <Route path="/:coinId" element={<Coin />}>
+          <Route path="chart" element={<Chart />} />
+          <Route path="price" element={<Price />} />
+        </Route>
         <Route path="/" element={<Coins />} />
       </Routes>
     </BrowserRouter>

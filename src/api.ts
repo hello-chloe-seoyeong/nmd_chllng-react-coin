@@ -18,6 +18,6 @@ export function fetchCoinTicker(coinId: string) {
 
 export function fetchCoinHistory(coinId: string) {
   return fetch(
-    `https://ohlcv-api.nomadcoders.wokers.dev?coinId=${coinId}`
+    `https://ohlcv-api.nomadcoders.workers.dev?coinId=${coinId}`
   ).then((response) => response.json());
 }

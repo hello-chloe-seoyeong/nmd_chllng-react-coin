@@ -15,6 +15,8 @@ const Container = styled.div`
 const Header = styled.header`
   height: 15vh;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const Title = styled.h1`
@@ -53,6 +55,7 @@ const Loader = styled.div`
   text-align: center;
   font-size: 20px;
 `;
+const Button = styled.button``;
 
 interface ICoinsProps {}
 
@@ -69,7 +72,7 @@ function Coins() {
     <Container>
       <Header>
         <Title>Coins</Title>
-        <button onClick={toggleDarkAtom}>Change Mode</button>
+        <Button onClick={toggleDarkAtom}>Change Mode</Button>
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>

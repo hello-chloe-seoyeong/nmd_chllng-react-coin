@@ -3,15 +3,12 @@ import styled from "styled-components";
 import { ICoin } from "../types/coin";
 import {
   Link,
-  Route,
-  Routes,
+  Outlet,
   useLocation,
   useMatch,
   useParams,
 } from "react-router-dom";
 import { fetchCoinInfo, fetchCoinTicker } from "../api";
-import Chart from "./Chart";
-import Price from "./Price";
 
 const Title = styled.h1`
   font-size: 48px;
@@ -193,7 +190,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Symbol:</span>
-              <span>${infoData?.symbol}</span>
+              <span>{infoData?.symbol}</span>
             </OverviewItem>
             <OverviewItem>
               <span>Price:</span>
@@ -219,10 +216,7 @@ function Coin() {
               <Link to={`/${coinId}/price`}>Price</Link>
             </Tab>
           </Tabs>
-          <Routes>
-            <Route path="chart" element={<Chart coinId={coinIdFromState} />} />
-            <Route path="price" element={<Price />} />
-          </Routes>
+          <Outlet context={{ coinId }} />
         </>
       )}
     </Container>

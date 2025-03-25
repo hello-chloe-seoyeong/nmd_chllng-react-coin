@@ -25,7 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "deploy": "gh-pages",
+    "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -50,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://hello-chloe-seoyeong.github.io/nmd_cllng-react-coin"
+  "homepage": "https://hello-chloe-seoyeong.github.io/nmd_chllng-react-coin"
 }
